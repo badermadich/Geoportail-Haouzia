@@ -1,0 +1,338 @@
+
+
+/* Style de base pour la page */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+/* App Bar */
+#app-bar {
+    background-color: #6aafba; /* Vert pour un effet professionnel */
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Contenu de l'App Bar : Logo + Titre */
+#app-bar-content {
+    display: flex;
+    align-items: center;
+}
+
+/* Logo dans l'App Bar */
+#logo {
+    height: 50px;
+    margin-right: 15px;
+}
+
+/* Titre dans l'App Bar */
+#app-bar h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
+/* Bouton pour zoomer sur Haouzia */
+.btn {
+    background-color: #fff;
+    color: #6aafba;
+    border: 2px solid #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    margin-right: 40px;
+}
+
+.btn:hover {
+    background-color: #f1f1f1;
+    color: #6aafba;
+}
+
+/* Style de la carte prenant en compte l'App Bar */
+#map {
+    height: calc(100vh - 75px);  /* La hauteur de la carte tient compte de la hauteur de l'App Bar */
+    width: 100%;
+    margin-top: 75px;
+}
+
+/* Responsivité pour mobile */
+@media (max-width: 768px) {
+    #app-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px; /* Réduire le padding pour les petits écrans */
+    }
+
+    #app-bar h1 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    #logo {
+        height: 40px; /* Réduire la taille du logo pour mobile */
+        margin-right: 10px;
+    }
+
+    .btn {
+        width: 100%; /* Le bouton occupe toute la largeur disponible */
+        margin-top: 10px;
+        margin-right: 0; /* Supprimer la marge à droite pour mobile */
+        padding: 8px 16px; /* Ajuster le padding pour mobile */
+    }
+}
+
+/* Responsivité pour les très petits écrans (smartphones compacts) */
+@media (max-width: 480px) {
+    #app-bar {
+        padding: 8px; /* Réduire encore plus le padding */
+    }
+
+    #app-bar h1 {
+        font-size: 16px;
+    }
+
+    #logo {
+        height: 35px; /* Réduire encore la taille du logo */
+    }
+
+    .btn {
+        font-size: 14px; /* Réduire la taille de la police pour mobile compact */
+        padding: 6px 12px; /* Ajuster le padding pour un look plus compact */
+    }
+}
+/* Style général pour le popup */
+.popup-tabs {
+    width: 300px;
+    font-family: Arial, sans-serif;
+}
+
+/* Style des boutons d'onglet */
+.tablinks {
+    background-color: #f1f1f1;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px;
+    width: 33.33%;
+    font-size: 14px;
+    transition: 0.3s;
+    display: inline-block;
+    text-align: center;
+}
+
+.tablinks:hover {
+    background-color: #ddd;
+}
+
+.tablinks.active {
+    background-color: #6aafba;
+    color: white;
+}
+
+/* Style des contenus d'onglet */
+.tabcontent {
+    display: none;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-top: none;
+    background-color: white;
+}
+
+.tabcontent img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+#page1 h3, #page2 h3, #page3 h3 {
+    color: #6aafba;
+    margin-top: 0;
+}
+
+#page1 p, #page3 p {
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+
+/* Menu Controls */
+#controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Select Box Styling */
+.select-box {
+    padding: 8px;
+    border: 1px solid #6aafba;
+    background-color: #fff;
+    color: #6aafba;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.select-box:focus {
+    outline: none;
+    border-color: #006400;
+}
+
+/* Checkbox Styling */
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+/* Responsive Controls */
+@media (max-width: 768px) {
+    #controls {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    #controls select, #controls label {
+        width: 100%;
+    }
+}
+
+#sidebar {
+    margin-top: 500 px;
+    position: absolute;
+    top: 120px; /* Ajustez cette valeur selon la hauteur de l'appbar, sans modifier les styles de l'appbar */
+    left: 60px;
+    background: rgba(255, 255, 255, 0.9); /* Fond légèrement opaque pour une meilleure visibilité */
+    padding: 15px; /* Plus d'espace autour du contenu */
+    border-radius: 8px; /* Coins arrondis pour un aspect plus doux */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* Ombre pour donner de la profondeur */
+    z-index: 1000; /* Gardez la sidebar au-dessus de la carte */
+    width: 260px; /* Largeur fixe pour un meilleur contrôle */
+}
+/* Styles pour les checkboxes */
+#sidebar label {
+    display: block; /* Aligne les checkboxes verticalement */
+    margin-bottom: 10px; /* Espace entre les checkboxes */
+    font-size: 14px; /* Taille de police légèrement plus grande */
+}
+
+#sidebar input[type="checkbox"] {
+    accent-color: #007bff; /* Couleur moderne pour le checkbox */
+    transform: scale(1.2); /* Agrandit le checkbox pour le rendre plus visible */
+    margin-right: 5px; /* Espace entre le checkbox et le texte */
+}
+
+/* Styles pour les titres */
+#sidebar h3 {
+    font-size: 18px; /* Taille de police pour le titre */
+    margin-bottom: 15px; /* Espace sous le titre */
+    text-align: center; /* Centrez le titre */
+    color: #333; /* Couleur de texte sombre pour le contraste */
+}
+
+/* Transition et effet de survol */
+#sidebar {
+    transition: all 0.3s ease; /* Ajoute une transition fluide pour les changements de style */
+}
+
+#sidebar:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3); /* Ombre plus marquée au survol */
+}
+
+/* étiquète */
+.custom-tooltip {
+    background-color: #6aafba;  /* Couleur de fond personnalisée */
+    color: white;               /* Couleur du texte */
+    font-weight: bold;          /* Texte en gras */
+    padding: 5px 10px;          /* Espacement autour du texte */
+    border-radius: 5px;         /* Coins arrondis */
+    border: 1px solid #2858de;  /* Bordure autour de l'étiquette */
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);  /* Ombre */
+}
+
+ /* General styling for popup content */
+ .custom-popup-content {
+    font-family: Arial, sans-serif;
+    width: 300px;
+    padding: 10px;
+  }
+
+  /* Styling for the tabs */
+  .custom-tab {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+  }
+
+  /* Styling for the buttons inside the tab */
+  .custom-tablinks {
+    background-color: #f1f1f1;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    transition: background-color 0.3s;
+    font-size: 14px;
+    flex-grow: 1;
+    text-align: center;
+  }
+
+  /* Change background color on hover */
+  .custom-tablinks:hover {
+    background-color: #ddd;
+  }
+
+  /* Active tab styling */
+  .custom-tablinks.active {
+    background-color: #ccc;
+  }
+
+  /* Styling for tab content */
+  .custom-tabcontent {
+    display: none;
+  }
+
+  /* Show the active tab content */
+  .custom-tabcontent.active {
+    display: block;
+  }
+
+/* Limite la hauteur du popup et ajoute un défilement vertical */
+.popup-tabs {
+    max-height: 400px; /* Ajustez la hauteur selon vos besoins */
+    overflow-y: auto;
+    width: 100%;
+    padding: 10px;
+}
+
+/* Style pour chaque contenu d'onglet */
+.tabcontent {
+    display: none;
+}
+
+.tabcontent h3, .tabcontent h4, .tabcontent p {
+    margin-bottom: 15px;
+}
+
+.tabcontent.active {
+    display: block;
+}
+
+.leaflet-top.leaflet-left {
+    top: 80px; /* Ajustez cette valeur selon la hauteur de votre AppBar */
+    left: 10px; /* Valeur par défaut, ajustable si nécessaire */
+}
+
+.app-bar {
+    z-index: 1000; /* S'assure que l'AppBar reste au-dessus des autres éléments */
+}
+

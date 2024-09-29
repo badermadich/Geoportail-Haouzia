@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Géoportail des Communes - Haouzia</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/esri-leaflet@2.5.3/dist/esri-leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-hatch/dist/leaflet-hatch.css" />
+    <script src="https://unpkg.com/leaflet-hatch/dist/leaflet-hatch.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.pattern/leaflet.pattern.css" />
+    <script src="https://unpkg.com/leaflet.pattern/leaflet.pattern.js"></script>
+    
+</head>
+<body>
+    <nav id="app-bar">
+        <div id="app-bar-content">
+            <img src="img/haouzia.png" alt="Logo de Haouzia" id="logo">
+            <h1>الجماعة الترابية الحوزية<br>Géoportail de la Commune de Haouzia</h1>
+        </div>
+        <!-- <div id="controls">
+            <select id="basemapSelector" class="select-box">
+                <option value="Imagery">Satellite</option>
+                <option value="Topographic">Topographic</option>
+                <option value="Streets">Rues</option>
+                
+            </select>
+        </div> -->
+        <button id="zoom-haouzia" class="btn">Zoom sur Haouzia</button>
+        
+    </nav>
+
+    <div id="map"></div>
+    
+    <!-- Sidebar for checkboxes -->
+    <div id="sidebar">
+        <h3>Options de couche</h3>
+        <!-- <label><input type="checkbox" id="places">les lieux</label><br> -->
+        <label><input type="checkbox" id="zone_touristique">Zone Touristique</label><br>
+        <label><input type="checkbox" id="centre_urbaine">Centre Urbain</label><br>
+        <label><input type="checkbox" id="routes">Autoroute</label><br>
+        <label><input type="checkbox" id="routes-national">Zone Agricole</label><br>
+        <label><input type="checkbox" id="echangeur"> Afficher les échangeurs vers Haouzia</label><br>
+        <!-- <label><input type="checkbox" id="PA">PA de la zone Nord Est de la ville d'El Jadida et une partie de la collectivité de Haouzia </label><br> -->
+        <label><input type="checkbox" id="ZT1">Pôle Urbain de Mazagan</label><br>
+        <label><input type="checkbox" id="ecole">Etablissement d'enseignement</label><br>
+        <label><input type="checkbox" id="patrimoine">Patrimoine Culturel</label><br>
+
+    </div>
+        
+    <script src="script.js"></script>
+</body>
+</html>
+
